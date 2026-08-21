@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Datos crudos provenientes de la ingesta en la Capa Bronce"
+    tables:
+      - name: actividades_diarias
+        description: "Historial de entrenamientos (Running, Ciclismo, Gimnasio)"
+      - name: nutricion_diaria
+        description: "Registro diario de macronutrientes y calorías"

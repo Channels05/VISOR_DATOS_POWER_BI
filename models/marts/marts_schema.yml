@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: fact_rendimiento_diario
+    description: "Tabla central con las métricas diarias de entrenamiento."
+    columns:
+      - name: id_fecha
+        description: "Fecha del entrenamiento (Llave foránea)"
+        tests:
+          - not_null
+      
+      - name: id_actividad
+        description: "Identificador único de la actividad"
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_actividad')
+                field: id_actividad
+
+  - name: dim_actividad
+    description: "Detalle descriptivo de las actividades deportivas."
+    columns:
+      - name: id_actividad
+        tests:
+          - unique
+          - not_null
+      
+      - name: tipo_actividad
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Running', 'Ciclismo de ruta', 'Gimnasio']
+
+  - name: dim_nutricion
+    columns:
+      - name: id_fecha
+        tests:
+          - unique
+          - not_null
+      
+      - name: gramos_proteina
+        description: "Ingesta diaria de proteína"
+        tests:
+          - not_null

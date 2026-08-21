@@ -1,0 +1,24 @@
+# Entornos virtuales de Python
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# DuckDB (base de datos local generada)
+*.duckdb
+*.duckdb.wal
+*.duckdb.tmp
+
+# Datos intermedios y exportaciones
+data/bronze/*.json
+data/bi_exports/*.csv
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
